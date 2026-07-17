@@ -5,6 +5,7 @@
 package org.unisiga.view;
 
 import org.unisiga.controller.InscripcionController;
+import org.unisiga.view.VentanaInscripcion;
 /**
  *
  * @author andy
@@ -82,7 +83,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void reportesConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesConsultasActionPerformed
         // TODO add your handling code here:
-        //new VentanaInscripcion(controller).setVisible(true);
+        new VentanaInscripcion(controller).setVisible(true);
     }//GEN-LAST:event_reportesConsultasActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
