@@ -82,7 +82,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void reportesConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportesConsultasActionPerformed
         // TODO add your handling code here:
-        javax.swing.JOptionPane.showMessageDialog(this,"Módulo de Inscripción (pendiente de crear).");
+        //new VentanaInscripcion(controller).setVisible(true);
     }//GEN-LAST:event_reportesConsultasActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
