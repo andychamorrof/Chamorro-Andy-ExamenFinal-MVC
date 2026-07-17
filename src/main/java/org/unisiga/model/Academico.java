@@ -40,5 +40,3 @@ public class Academico extends MiembroUniversitario {
     public void setDepartamento(Departamento depto) { this.departamento = depto; }
     public List<Seccion> getSeccionesDictadas() { return seccionesDictadas; }
 }
-
-// pruebaClonacion

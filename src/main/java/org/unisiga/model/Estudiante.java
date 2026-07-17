@@ -24,7 +24,10 @@ public class Estudiante extends MiembroUniversitario {
     @Override
     public boolean login(String password) {
         // TODO: Implementar validación simulada de clave del estudiante (largo mínimo de 8 caracteres)
-        throw new UnsupportedOperationException("Método login() no implementado aún.");
+        if (password == null) {
+            return false;
+        }
+        return password.length() >= 8;
     }
 
     /**
@@ -34,7 +37,18 @@ public class Estudiante extends MiembroUniversitario {
     public void inscribirSeccion(Seccion seccion) {
         // TODO: Implementar la lógica del control de cupos y la creación de la clase de asociación 'Inscripcion'
         // No olvides agregar la nueva inscripción tanto a la lista de este estudiante como a la de la sección.
-        throw new UnsupportedOperationException("Método inscribirSeccion() no implementado aún.");
+        if (seccion == null) {
+            throw new IllegalArgumentException("La sección no puede ser nula.");
+        }
+        // Control de cupos: cantidad de inscritos actuales vs cupo máximo.
+        if (seccion.getInscripciones().size() >= seccion.getCupoMaximo()) {
+            throw new IllegalStateException("La sección " + seccion.getIdGrupo()
+                    + " no tiene cupos disponibles.");
+        }
+        // Crea la clase de asociación y mantiene la bidireccionalidad.
+        Inscripcion inscripcion = new Inscripcion(this, seccion);
+        this.inscripciones.add(inscripcion);
+        seccion.getInscripciones().add(inscripcion);
     }
 
     // Getters y Setters
