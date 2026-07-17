@@ -21,7 +21,7 @@ public class Academico extends MiembroUniversitario {
 
     @Override
     public boolean login(String password) {
-        // TODO: Implementar validación simulada de MFA docente (requiere que el password contenga '@')
+        // Regla docente (MFA simulado): la clave debe contener '@'.
         if (password == null) {
             return false;
         }
@@ -33,7 +33,6 @@ public class Academico extends MiembroUniversitario {
      * [REGLAS]: Validar parámetros, rango de notas [1.0, 7.0] y que la evaluación pertenezca a la asignatura.
      */
     public void registrarNota(Inscripcion inscripcion, Evaluacion evaluacion, float valorNota) {
-        // TODO: Implementar la validación e inserción/actualización de la nota (Tres Vías)
         // 1. Validar parámetros no nulos.
         if (inscripcion == null || evaluacion == null) {
             throw new IllegalArgumentException("La inscripción y la evaluación no pueden ser nulas.");

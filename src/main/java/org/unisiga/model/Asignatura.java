@@ -11,10 +11,10 @@ public class Asignatura {
     private String codigo;
     private String nombre;
     private int creditosSct;
-    
+
     // Auto-asociación recursiva para prerrequisitos
     private List<Asignatura> prerrequisitos;
-    
+
     // Composiciones fuertes (Sólo Asignatura puede instanciar estos objetos)
     private List<Seccion> secciones;
     private List<Evaluacion> evaluaciones;
@@ -29,7 +29,6 @@ public class Asignatura {
     }
 
     public void agregarPrerrequisito(Asignatura asig) {
-        // TODO: Agregar asignatura de prerrequisito evitando duplicados
         if (asig == null) {
             throw new IllegalArgumentException("El prerrequisito no puede ser nulo.");
         }
@@ -46,7 +45,6 @@ public class Asignatura {
      * LÓGICA DE COMPOSICIÓN: Instancia una sección semestral y la asocia.
      */
     public Seccion crearSeccion(char idGrupo, int cupoMaximo, String horario) {
-        // TODO: Crear y retornar una nueva sección. Recuerda que el constructor de Sección es restringido.
         // Sólo esta clase puede invocar el constructor package-private de Seccion.
         Seccion seccion = new Seccion(idGrupo, cupoMaximo, horario, this);
         this.secciones.add(seccion);
@@ -57,7 +55,6 @@ public class Asignatura {
      * LÓGICA DE COMPOSICIÓN: Instancia una evaluación unificada para la asignatura.
      */
     public Evaluacion crearEvaluacion(int id, String titulo, float ponderacion) {
-        // TODO: Crear y retornar una nueva evaluación oficial de la cátedra.
         // Sólo esta clase puede invocar el constructor package-private de Evaluacion.
         Evaluacion evaluacion = new Evaluacion(id, titulo, ponderacion, this);
         this.evaluaciones.add(evaluacion);

@@ -19,7 +19,6 @@ public class Departamento {
     }
 
     public void asociarAcademico(Academico acad) {
-        // TODO: Asociar el académico a este departamento asegurando la bidireccionalidad segura
         if (acad == null) {
             throw new IllegalArgumentException("El académico no puede ser nulo.");
         }
