@@ -30,7 +30,16 @@ public class Asignatura {
 
     public void agregarPrerrequisito(Asignatura asig) {
         // TODO: Agregar asignatura de prerrequisito evitando duplicados
-        throw new UnsupportedOperationException("Método agregarPrerrequisito() no implementado aún.");
+        if (asig == null) {
+            throw new IllegalArgumentException("El prerrequisito no puede ser nulo.");
+        }
+        if (asig == this) {
+            throw new IllegalArgumentException("Una asignatura no puede ser prerrequisito de sí misma.");
+        }
+        // Evita duplicados.
+        if (!this.prerrequisitos.contains(asig)) {
+            this.prerrequisitos.add(asig);
+        }
     }
 
     /**
@@ -38,7 +47,10 @@ public class Asignatura {
      */
     public Seccion crearSeccion(char idGrupo, int cupoMaximo, String horario) {
         // TODO: Crear y retornar una nueva sección. Recuerda que el constructor de Sección es restringido.
-        throw new UnsupportedOperationException("Método crearSeccion() no implementado aún.");
+        // Sólo esta clase puede invocar el constructor package-private de Seccion.
+        Seccion seccion = new Seccion(idGrupo, cupoMaximo, horario, this);
+        this.secciones.add(seccion);
+        return seccion;
     }
 
     /**
@@ -46,7 +58,10 @@ public class Asignatura {
      */
     public Evaluacion crearEvaluacion(int id, String titulo, float ponderacion) {
         // TODO: Crear y retornar una nueva evaluación oficial de la cátedra.
-        throw new UnsupportedOperationException("Método crearEvaluacion() no implementado aún.");
+        // Sólo esta clase puede invocar el constructor package-private de Evaluacion.
+        Evaluacion evaluacion = new Evaluacion(id, titulo, ponderacion, this);
+        this.evaluaciones.add(evaluacion);
+        return evaluacion;
     }
 
     // Getters
